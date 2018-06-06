@@ -1,35 +1,38 @@
+import * as actionTypes from "../actions";
+
 const initialState = {
   counter: 0
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case actionTypes.INCREMENT:
       return {
         ...state,
         counter: state.counter + 1
       };
-      break;
-    case "DECREMENT":
+    // break;
+    case actionTypes.DECREMENT:
       return {
         ...state,
         counter: state.counter - 1
       };
-      break;
-    case "ADD5":
+    // break;
+    case actionTypes.ADD:
       return {
         ...state,
-        counter: state.counter + 5
+        counter: state.counter + action.payload.value
       };
-      break;
-    case "SUBSTRACT5":
+    // break;
+    case actionTypes.SUBSTRACT:
       return {
         ...state,
-        counter: state.counter - 5
+        counter: state.counter - action.payload.value
       };
-      break;
+    //break;
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
